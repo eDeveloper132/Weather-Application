@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Application</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/service-worker.js')
+      .then(reg => {
+        console.log('✅ Service Worker registered: ', reg.scope);
+      })
+      .catch(err => {
+        console.error('❌ Service Worker registration failed: ', err);
+      });
+  });
+}
+
+    </script>
+</head>
+<body>
+    <center>
+        <h1 style="margin-top: 100px;">Weather Application</h1>
+    </center>
+    <center>
+    <div class="form_control">
+        <input id="city-name" type="text" placeholder="enter you city name">
+        <button id="get-weather">Get Weather</button>
+    </div>
+    </center>
+    <center>
+    <div id="weather-details">
+
+    </div>
+    </center>
+
+    <script type="module" src="script.mjs"></script>
+</body>
+</html>
