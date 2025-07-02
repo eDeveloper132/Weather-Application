@@ -18,21 +18,16 @@
     </script>
 </head>
 <body>
-    <center>
-        <h1 style="margin-top: 100px;">Weather Application</h1>
-    </center>
-    <center>
-    <div class="form_control">
-        <input id="city-name" type="text" placeholder="enter you city name">
-        <button id="get-weather">Get Weather</button>
-    </div>
-    </center>
-    <center>
-    <div id="weather-details">
-
-    </div>
-    </center>
-
-    <script type="module" src="./script.js"></script>
+  <header class="app-header">
+    <h1>Weather Application</h1>
+  </header>
+  <main class="app-container">
+    <section class="form-control">
+      <input id="city-name" type="text" placeholder="Enter your city name">
+      <button id="get-weather">Get Weather</button>
+    </section>
+    <section id="weather-details" class="weather-details"></section>
+  </main>
+  <script type="module" src="./script.js"></script>
 </body>
 </html>
