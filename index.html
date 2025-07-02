@@ -4,22 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Application</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="manifest" href="./manifest.json">
     <script>
-        if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker
-      .register('/service-worker.js')
-      .then(reg => {
-        console.log('✅ Service Worker registered: ', reg.scope);
-      })
-      .catch(err => {
-        console.error('❌ Service Worker registration failed: ', err);
-      });
-  });
-}
-
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('./service-worker.js')
+        .then(reg => console.log('✅ SW:', reg.scope))
+        .catch(err => console.error('❌ SW failed:', err));
+    });
+  }
     </script>
 </head>
 <body>
@@ -38,6 +33,6 @@
     </div>
     </center>
 
-    <script type="module" src="script.mjs"></script>
+    <script type="module" src="./script.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 const api_key = '8de00c3e50fab8039d396f04085faf77';
 
 const getWeather = async (city) => {
-    const api_url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${api_key}`;
+    const api_url = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${api_key}`;
     try {
         const response = await fetch(api_url);
         if (!response.ok) {
@@ -14,7 +14,7 @@ const getWeather = async (city) => {
         const api_url_2 = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=${api_key}`;
         try {
             const response_2 = await fetch(api_url_2);
-            if (!response.ok) {
+            if (!response_2.ok) {
                 throw new Error('Weather not found');
             }
             const data_2 = await response_2.json();
@@ -29,11 +29,16 @@ const getWeather = async (city) => {
 }
 
 const displayData = (data,city) => {
+    const toTime = ts => new Date(ts * 1000).toLocaleTimeString();
     const weatherContainer = document.getElementById('weather-details');
     weatherContainer.innerHTML = `
     <h1 style="margin-bottom: 20px;">${city}</h1>
     <center>
     <div class="data-container">
+    <span>
+        <h2>Time </h2> <h3>${toTime(data.current.sunrise)}</h3>
+    </span>
+    <br>
     <span>
         <h2>Temperature </h2> <h3>${data.current.temp}</h3>
     </span>

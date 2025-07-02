@@ -1,12 +1,12 @@
 const CACHE_NAME = 'weather-app-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/script.mjs',
-  '/style.css',
-  '/manifest.json',
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png'
+  './',
+  './index.html',
+  './script.js',
+  './style.css',
+  './manifest.json',
+  './icons/icon-192x192.png',
+  './icons/icon-512x512.png'
 ];
 
 // Install the service worker
